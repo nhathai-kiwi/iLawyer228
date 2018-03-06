@@ -7,6 +7,7 @@ import iLawyer_basic as ib
 
 # generate dictionary from xlsx file
 # TODO add description for input xlsx
+
 def gen_dict_from_xlsx(inp_xlsx, num_rows, id_column):
     all_questions = ib.gen_column_from_xlsx(inp_xlsx, num_rows, id_column)
     ib.print_txt_from_array(all_questions, out_txt='vncore_inp.txt') # print output to a file, this file will be deleted later
