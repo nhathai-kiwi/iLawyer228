@@ -15,27 +15,26 @@ def process_delete_file(inp_fileName):
 # DONE
 
 
-# generate questions (string array) from xlsx file
-# by default questions are stored in 2nd column from the second row
-def gen_questions_from_xlsx(inp_xlsx, num_rows, num_cols):
-    questions = []
+# read data in id_column from inp_xlsx from the second row
+def gen_column_from_xlsx(inp_xlsx, num_rows, id_column):
+    data = []
     # ADD YOUR CODE HERE. when done, please add # DONE after return line
     book = openpyxl.load_workbook(inp_xlsx)
     sheet = book.active
     for row in range(2, num_rows + 1): # ignore 1st row which is preserved for column title
-        question = sheet.cell(row=row, column=2).value # store all questions in column 2
-        questions.append(question)
-    return questions
+        datum = sheet.cell(row=row, column=id_column).value
+        data.append(datum)
+    return data
 # DONE
 
 
 # by default articles are stored in 2nd colums from the second row
-# get article has id = answer_number --> return index( row = answer_number + 1, colums = 2)
-def print_txt_from_prediction(inp_xlsx, num_rows, num_cols, answer_number, out_txt):
+# get article has id = answer_number --> return index( row = answer_number + 1, colums = id_column)
+def print_txt_from_prediction(inp_xlsx, answer_number, id_column, out_txt):
     # get article: answer_number from inp_xlsx file
     book = openpyxl.load_workbook(inp_xlsx)
     sheet = book.active
-    article = sheet.cell(row = answer_number + 1, column = 2).value
+    article = sheet.cell(row = answer_number + 1, column = id_column).value
 
     # write article to txt file
     f = open(out_txt, "w")
@@ -115,19 +114,6 @@ def gen_words_from_vncore_out_txt(vn_core_out_txt):
     return words_replicated
 
 
-# generate labels (numeric array) from xlsx file
-def gen_labels_from_xlsx(inp_xlsx, num_rows):
-    labels = []
-    # ADD YOUR CODE HERE
-    book = openpyxl.load_workbook(inp_xlsx)
-    sheet = book.active
-    for row in range(2, num_rows + 1): # ignore 1st row which is preserved for column title
-        label = sheet.cell(row = row, column = 3).value # store all in column 3
-        labels.append(label)
-    return labels
-# DONE
-
-
 # generate feature vector (numeric array)
 def gen_feature_vector(string_array):
     global dict
@@ -169,10 +155,10 @@ def gen_input_vector_from_txt(inp_txt, dictMain):
 
 
 # generate feature table (numeric 2D array) from a training set stored in xlsx
-def gen_feature_table_from_xlsx(inp_xlsx, num_rows, num_cols, dictMain):
+def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, dictMain):
     separator = 'separator'
     feature_table = []
-    all_questions = gen_questions_from_xlsx(inp_xlsx, num_rows, num_cols)
+    all_questions = gen_column_from_xlsx(inp_xlsx, num_rows, id_column_question)
     global dict
     dict = dictMain
 
