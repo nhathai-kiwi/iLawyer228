@@ -113,6 +113,26 @@ def gen_words_from_vncore_out_txt(vn_core_out_txt):
     #words = gen_distinct_array(words_replicated)
     return words_replicated
 
+def gen_words_from_vncore_out_txt_with_multi_syllable(vn_core_out_txt):
+    words = []
+    # ADD YOUR CODE HERE
+    lines = gen_array_from_txt(vn_core_out_txt)
+    words_replicated = []
+    for line in lines:
+        texts = line.split(chr(9))
+        if len(texts) == 6:
+            text = texts[1]
+            if not text[0].isdigit(): # ignore all words starting with digit
+                if text[0].find('_') != -1:
+                    word = text.replace('_', ' ').lower() # replace underscore by space, change all characters to lower case
+                    # TODO find a way to remove all words with single syllable, those have tiny impact on guessing
+                    # TODO remove text that contains special characters
+                    words_replicated.append(word)
+    # remove all words that appear more than once
+    #words = gen_distinct_array(words_replicated)
+    return words_replicated
+
+
 
 # generate feature vector (numeric array)
 def gen_feature_vector(string_array):
