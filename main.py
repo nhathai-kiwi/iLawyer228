@@ -9,18 +9,18 @@ import iLawyer_basic as ib
 # training data being stored in a file named "tableTraining.xlsx" with specific format TODO add file descritpion
 
 # generate dictionary
-dict_file_name = "dict002.xlsx" # currently we use tableTraining.xlsx for generate dictionary
-dict_num_rows = 372
+dict_file_name = "dict001.xlsx" # currently we use tableTraining.xlsx for generate dictionary
+dict_num_rows = 214
 id_column_question = 2
 id_column_label = 3
-dict, num_words = il.gen_dict_from_xlsx(dict_file_name, dict_num_rows, id_column_question)
+dict, num_words = il.gen_dict_from_xlsx_with_multi_syllable(dict_file_name, dict_num_rows, id_column_question)
 print len(dict)
-dict001_Gen01_txt = 'dict002_Gen01.txt'
+dict001_Gen01_txt = 'dict001_Gen02.txt'
 ib.print_txt_from_array(dict, dict001_Gen01_txt)
 
 # search all keywords in tableTraining, reshape in matrix form (X, y)
-training_file_name = "dict002.xlsx"
-num_examples = 371
+training_file_name = "dict001.xlsx"
+num_examples = 214
 num_features = 213
 performance_xlsx = 'performanceDict002.xlsx'
 

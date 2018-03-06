@@ -123,7 +123,7 @@ def gen_words_from_vncore_out_txt_with_multi_syllable(vn_core_out_txt):
         if len(texts) == 6:
             text = texts[1]
             if not text[0].isdigit(): # ignore all words starting with digit
-                if text[0].find('_') != -1:
+                if text.find('_') != -1:
                     word = text.replace('_', ' ').lower() # replace underscore by space, change all characters to lower case
                     # TODO find a way to remove all words with single syllable, those have tiny impact on guessing
                     # TODO remove text that contains special characters
