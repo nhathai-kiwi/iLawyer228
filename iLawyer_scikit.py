@@ -53,10 +53,12 @@ def train_by_MLPClassifier(X, y, num_features):
     return clf.fit(X, y)
 # DONE
 
+
 # return label from clf model, input: X is vector 2D
 def predict(clf, X):
     return clf.predict(X)
 # DONE
+
 
 # calculate performance: percentage (number of prediction label that equal correct label)
 def cal_performance(correct_lables, cal_labels):

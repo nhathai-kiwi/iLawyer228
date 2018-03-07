@@ -1,15 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# ilawyer basic functions
+# iLawyer basic functions
+
+import openpyxl
+import os
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-import openpyxl
-import os
 dict
+
+
 # delete file has a name inp_fileName
-def process_delete_file(inp_fileName):
-    cmd = "rm -rf " + inp_fileName
+def process_delete_file(inp_file_name):
+    cmd = "rm -rf " + inp_file_name
     os.system(cmd)
     return 0
 # DONE
@@ -18,7 +21,6 @@ def process_delete_file(inp_fileName):
 # read data in id_column from inp_xlsx from the second row
 def gen_column_from_xlsx(inp_xlsx, num_rows, id_column):
     data = []
-    # ADD YOUR CODE HERE. when done, please add # DONE after return line
     book = openpyxl.load_workbook(inp_xlsx)
     sheet = book.active
     for row in range(2, num_rows + 1): # ignore 1st row which is preserved for column title
@@ -28,8 +30,10 @@ def gen_column_from_xlsx(inp_xlsx, num_rows, id_column):
 # DONE
 
 
+# print content of a prediction to txt file
 # by default articles are stored in 2nd colums from the second row
 # get article has id = answer_number --> return index( row = answer_number + 1, colums = id_column)
+# TODO explain default value inp_xlsx = 'lawInEnterprise.xlsx'
 def print_txt_from_prediction(inp_xlsx, answer_number, id_column, out_txt):
     # get article: answer_number from inp_xlsx file
     book = openpyxl.load_workbook(inp_xlsx)
@@ -46,7 +50,6 @@ def print_txt_from_prediction(inp_xlsx, answer_number, id_column, out_txt):
 
 # print array to txt file, each element in a line
 def print_txt_from_array(string_array, out_txt):
-    # ADD YOUR CODE HERE
     f = open(out_txt, "w")
     for each_string in string_array:
         f.write(str(each_string) + "\n")
@@ -59,7 +62,6 @@ def print_txt_from_array(string_array, out_txt):
 # input: file name of a txt file
 # output: TODO add description here
 def process_vncore(inp_txt, out_txt):
-    # ADD YOUR CODE HERE
     cmd = "java -Xmx2g -jar VnCoreNLP-1.0.jar -fin " + inp_txt + " -fout " + out_txt
     os.system(cmd)
     return 0
@@ -80,7 +82,6 @@ def gen_array_from_txt(inp_txt):
 # remove identical element from an array
 def gen_distinct_array(inp_arr):
     out_arr = []
-    # ADD YOUR CODE HERE
     dicts = {}
     for element in inp_arr:
         value = dicts.get(element, 0)
@@ -92,32 +93,28 @@ def gen_distinct_array(inp_arr):
 
 
 # generate words (string array) from output of vncore
-# TODO add details about what we need to do with vncore output format
-# eg: delete words that appear more than once or start with number, etc
+# manipulation includes: ignore all words starting with digit,
+# replace underscore by space and change all characters to lower case
 def gen_words_from_vncore_out_txt(vn_core_out_txt):
-    words = []
-    # ADD YOUR CODE HERE
-    lines = gen_array_from_txt(vn_core_out_txt)
     words_replicated = []
+    lines = gen_array_from_txt(vn_core_out_txt)
     for line in lines:
         texts = line.split(chr(9))
         if len(texts) == 6:
             text = texts[1]
-            if not text[0].isdigit(): # ignore all words starting with digit
-                word = text.replace('_', ' ').lower() # replace underscore by space, change all characters to lower case
-                # TODO find a way to remove all words with single syllable, those have tiny impact on guessing
-                # TODO remove text that contains special characters
-
+            if not text[0].isdigit():  # ignore all words starting with digit
+                word = text.replace('_', ' ').lower()  # replace underscore by space, change all characters to lower case
                 words_replicated.append(word)
-    # remove all words that appear more than once
-    #words = gen_distinct_array(words_replicated)
+    # replicated words will be handled in gen_distinct_array
     return words_replicated
 
-def gen_words_from_vncore_out_txt_with_multi_syllable(vn_core_out_txt):
-    words = []
-    # ADD YOUR CODE HERE
-    lines = gen_array_from_txt(vn_core_out_txt)
+
+# generate words (string array) from output of vncore
+# manipulation includes those listed in gen_words_from_vncore_out_txt
+# keep only words with multiple syllables
+def gen_words_from_vncore_out_txt_02(vn_core_out_txt):
     words_replicated = []
+    lines = gen_array_from_txt(vn_core_out_txt)
     for line in lines:
         texts = line.split(chr(9))
         if len(texts) == 6:
@@ -125,29 +122,20 @@ def gen_words_from_vncore_out_txt_with_multi_syllable(vn_core_out_txt):
             if not text[0].isdigit(): # ignore all words starting with digit
                 if text.find('_') != -1:
                     word = text.replace('_', ' ').lower() # replace underscore by space, change all characters to lower case
-                    # TODO find a way to remove all words with single syllable, those have tiny impact on guessing
-                    # TODO remove text that contains special characters
                     words_replicated.append(word)
-    # remove all words that appear more than once
-    #words = gen_distinct_array(words_replicated)
     return words_replicated
-
 
 
 # generate feature vector (numeric array)
 def gen_feature_vector(string_array):
     global dict
     feature_vector = []
-    # ADD YOUR CODE HERE
-    dictStringArray = {} # remove all the string duplicate in string_array by dictinary - STL python
+    dict_string_array = {} # remove all the string duplicate in string_array by dictinary - STL python
     for element in string_array:
-        value = dictStringArray.get(element, 0)
-        dictStringArray[element] = value + 1
-
+        value = dict_string_array.get(element, 0)
+        dict_string_array[element] = value + 1
     for word in dict:
-        #print word, " ", len(word) #check word have a charater ('\n')
-        #check word in dict exist in string_array, if it exist then value of feature = 1, else value of feature = 0
-        if word in dictStringArray:
+        if word in dict_string_array:
             feature_vector.append(1)
         else:
             feature_vector.append(0)
@@ -166,7 +154,6 @@ def gen_input_vector_from_txt(inp_txt, dictMain):
 
     inp_vector = gen_feature_vector(string_array)
 
-    # TODO delete vncore_inp.txt and vncore_out.txt
     process_delete_file('vncore_inp.txt')
     process_delete_file('vncore_out.txt')
 
@@ -192,7 +179,7 @@ def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, dictMain
     process_vncore('vncore_inp.txt', 'vncore_out.txt')
     string_array = gen_words_from_vncore_out_txt('vncore_out.txt')
 
-    # seperating question and get it's feature vector
+    # separating question and get its feature vector
     question = []
     cnt = 0
     for each_string in string_array:
@@ -209,7 +196,6 @@ def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, dictMain
     feature_vector = gen_feature_vector(question)
     feature_table.append(feature_vector)
 
-    # TODO delete vncore_inp.txt and vncore_out.txt
     process_delete_file('vncore_inp.txt')
     process_delete_file('vncore_out.txt')
 
