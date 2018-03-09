@@ -28,7 +28,9 @@ num_features = 213
 
 X, y = il.gen_feature_table_labels(training_file_name, training_num_rows, id_column_question, id_column_label, dict)
 
-clf = isk.train_by_MLPClassifier(X, y, num_features)
+clf = isk.train_by_DecisionTreeClassifier(X, y)
+
+
 cal_labels = isk.predict(clf, X)
 correct_labels = y
 
