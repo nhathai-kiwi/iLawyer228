@@ -48,19 +48,19 @@ print "Performances MLP", performance
 #########################
 # Part 2: cross evaluation
 
-# print "STT 03"
-# training_cross_evaluation_file_name = "train003.xlsx"
-# training_num_rows = 72
-# X, y = il.gen_feature_table_labels(training_cross_evaluation_file_name, training_num_rows, id_column_question, id_column_label, dict)
-#
-# cal_labels = isk.predict(clf, X)
-# correct_labels = y
-#
-# print "Cal_labels CE: ", cal_labels
-# print "Correct_labels CE: ", correct_labels
-#
-# performance = isk.cal_performance(correct_labels, cal_labels)
-# print "Performances MLP cross evaluation: ", performance
+print "STT 03"
+training_cross_evaluation_file_name = "train005.xlsx"
+training_num_rows = 117
+X, y = il.gen_feature_table_labels(training_cross_evaluation_file_name, training_num_rows, id_column_question, id_column_label, dict)
+
+cal_labels = isk.predict(clf, X)
+correct_labels = y
+
+print "Cal_labels CE: ", cal_labels
+print "Correct_labels CE: ", correct_labels
+
+performance = isk.cal_performance(correct_labels, cal_labels)
+print "Performances MLP cross evaluation: ", performance
 
 
 #########################
