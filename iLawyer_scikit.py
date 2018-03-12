@@ -10,7 +10,9 @@ from sklearn.multiclass import OneVsOneClassifier
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.svm import LinearSVC
 from sklearn import tree
-import graphviz
+from sklearn.model_selection import learning_curve
+import matplotlib.pyplot as plt
+import pandas as pd
 
 # training by support vector classification http://scikit-learn.org/stable/tutorial/basic/tutorial.html
 def train_by_SVC(X, y):
@@ -50,10 +52,14 @@ def train_by_SGDClassifier(X, y):
 # training by multi-layer perceptron (MLP) algorithm that trains using Backpropagation
 # http://scikit-learn.org/stable/modules/neural_networks_supervised.html#classification
 def train_by_MLPClassifier(X, y, num_features):
-    clf = MLPClassifier(activation = 'logistic', solver='lbfgs', alpha=1e-5, learning_rate = 'adaptive', hidden_layer_sizes=(num_features), max_iter = 400, random_state=1)
+    clf = MLPClassifier(activation = 'logistic', solver='lbfgs', alpha=1e-5, learning_rate = 'adaptive', hidden_layer_sizes=(num_features), max_iter=400, random_state=1)
     return clf.fit(X, y)
 # DONE
 
+def train_by_MLPClassifier_regularization(X, y, num_features, alpha, max_iter):
+    clf = MLPClassifier(activation='logistic', solver='lbfgs', alpha=alpha, learning_rate='adaptive',
+                        hidden_layer_sizes=(num_features), max_iter=max_iter, random_state=1)
+    return clf.fit(X, y)
 
 # training by decision Tree - http://scikit-learn.org/stable/modules/tree.html
 def train_by_DecisionTreeClassifier(X, y):
@@ -89,6 +95,27 @@ def cal_performance(correct_lables, cal_labels):
 # DONE
 
 
+def learning_curves(estimator, features, target, train_sizes, cv):
+    train_sizes, train_scores, validation_scores = learning_curve(
+        estimator, features, target, train_sizes=train_sizes,
+        cv=cv, scoring='neg_mean_squared_error')
+    train_scores_mean = -train_scores.mean(axis=1)
+    validation_scores_mean = -validation_scores.mean(axis=1)
+
+    print('Mean training scores\n\n', pd.Series(train_scores_mean, index=train_sizes))
+    print('\n', '-' * 20)  # separator
+    print('\nMean validation scores\n\n', pd.Series(validation_scores_mean, index=train_sizes))
+
+
+    plt.plot(train_sizes, train_scores_mean, label='Training error')
+    plt.plot(train_sizes, validation_scores_mean, label='Validation error')
+
+    plt.ylabel('MSE', fontsize=14)
+    plt.xlabel('Training set size', fontsize=14)
+    title = 'Learning curves for a ' + str(estimator).split('(')[0] + ' model'
+    plt.title(title, fontsize=18, y=1.03)
+    plt.legend()
+    plt.ylim(0, 40)
 
 
 def print_xlsx_prediction(out_xlsx, training_file_name, num_rows, id_column_question, X, y, num_features):

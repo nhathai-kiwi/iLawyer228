@@ -5,7 +5,6 @@ import os
 import sys  
 reload(sys)  
 sys.setdefaultencoding('utf8')
-import basicFunction as bf
 #os.system("java -Xmx2g -jar VnCoreNLP-1.0.jar -fin question.txt -fout output.txt")
 
 
