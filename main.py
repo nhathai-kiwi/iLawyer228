@@ -26,12 +26,9 @@ training_file_name = "train004.xlsx"
 training_num_rows = 372
 num_features = 213
 
-train_sizes = [1, 100, 200, 250, 296]
-
-
 X, y = il.gen_feature_table_labels(training_file_name, training_num_rows, id_column_question, id_column_label, dict)
 
-clf = isk.train_by_MLPClassifier_regularization(X, y, num_features, 0.7, 400)
+clf = isk.train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes=(num_features), alpha=0.7, max_iter=400)
 
 cal_labels = isk.gen_prediction(clf, X)
 correct_labels = y

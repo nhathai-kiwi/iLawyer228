@@ -10,9 +10,7 @@ from sklearn.multiclass import OneVsOneClassifier
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.svm import LinearSVC
 from sklearn import tree
-from sklearn.model_selection import learning_curve
-import matplotlib.pyplot as plt
-import pandas as pd
+
 
 # training by support vector classification http://scikit-learn.org/stable/tutorial/basic/tutorial.html
 def train_by_SVC(X, y):
@@ -58,9 +56,9 @@ def train_by_MLPClassifier(X, y, hidden_layer_sizes):
 # DONE
 
 
-def train_by_MLPClassifier_regularization(X, y, num_features, alpha, max_iter):
+def train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes, alpha, max_iter):
     clf = MLPClassifier(activation='logistic', solver='lbfgs', alpha=alpha, learning_rate='adaptive',
-                        hidden_layer_sizes=(num_features), max_iter=max_iter, random_state=1)
+                        hidden_layer_sizes=hidden_layer_sizes, max_iter=max_iter, random_state=1)
     return clf.fit(X, y)
 # DONE
 
