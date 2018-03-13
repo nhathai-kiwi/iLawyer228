@@ -47,10 +47,3 @@ def processFile(fileInput):
 
 	return words
 
-def processString(text):
-	print "ProcessString from runVNcoreNLP"
-	print bf.fileNameForRunVnCore
-	f = open(bf.fileNameForRunVnCore, 'w')
-	f.write(text)
-	f.close()
-	return processFile(bf.fileNameForRunVnCore)

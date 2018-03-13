@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 # iLawyer basic functions
 
+import numpy as np
 import openpyxl
+import iLawyer_scikit as isk
 import os
 import sys
 reload(sys)
@@ -203,6 +205,22 @@ def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, dictMain
 # DONE
 
 
+# test some of pair (alpha, number of iteration) im MLP model to choose the best (alpha, iteration)
+def _alpha_and_iteration_in_MLP(X, y, X1, y1, alphas, max_iters, num_features):
+    for alpha in alphas:
+        for max_iter in max_iters:
+            print "Alpha: ", alpha, "max_iter: ", max_iter
+            clf = isk.train_by_MLPClassifier_regularization(X, y, num_features, alpha, max_iter)
 
+            cal_labels = isk.predict(clf, X)
+            correct_labels = y
+            performance = isk.cal_performance(correct_labels, cal_labels)
+            print "Performances MLP training set: ", performance
 
+            cal_labels = isk.predict(clf, X1)
+            correct_labels = y1
+
+            performance = isk.cal_performance(correct_labels, cal_labels)
+            print "Performances MLP test set: ", performance
+# DONE
 
