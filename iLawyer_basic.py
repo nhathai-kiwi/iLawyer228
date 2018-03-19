@@ -5,12 +5,12 @@
 import numpy as np
 import openpyxl
 import iLawyer_scikit as isk
+from collections import OrderedDict
 import os
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 dict
-
 
 # delete file has a name inp_fileName
 def process_delete_file(inp_file_name):
@@ -88,8 +88,28 @@ def gen_distinct_array(inp_arr):
     for element in inp_arr:
         value = dicts.get(element, 0)
         dicts[element] = value + 1
+    print "Len dicts01: ", len(dicts)
     for key, value in dicts.iteritems():
         out_arr.append(key)
+    return out_arr
+# DONE
+
+
+# remove identical element from an array
+def gen_distinct_array_with_count(inp_arr):
+    out_arr = []
+    dicts = {}
+    for element in inp_arr:
+        value = dicts.get(element, 0)
+        dicts[element] = value + 1
+
+    print "Len dicts: ", len(dicts)
+    dictsSort = OrderedDict(sorted(dicts.items(), key=lambda x: x[1], reverse=True))
+    print "Len dictSort: ", len(dictsSort)
+
+    for key, value in dictsSort.items():
+        out_arr.append(key + " " + str(value))
+        #print "Here: ", key, " ", value
     return out_arr
 # DONE
 
@@ -164,6 +184,7 @@ def gen_input_vector_from_txt(inp_txt, dictMain):
 
 
 # generate feature table (numeric 2D array) from a training set stored in xlsx
+# TODO rename function
 def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, dictMain):
     separator = 'separator'
     feature_table = []

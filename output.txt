@@ -1,5 +1,17 @@
-Điều 5: Bảo đảm của Nhà nước đối với doanh nghiệp và chủ sở hữu doanh nghiệp
-1. Nhà nước công nhận sự tồn tại lâu dài và phát triển của các loại hình doanh nghiệp được quy định tại Luật này; bảo đảm bình đẳng trước pháp luật của các doanh nghiệp không phân biệt hình thức sở hữu và thành phần kinh tế; thừa nhận tính sinh lợi hợp pháp của hoạt động kinh doanh.
-2. Nhà nước công nhận và bảo hộ quyền sở hữu tài sản, vốn đầu tư, thu nhập, các quyền và lợi ích hợp pháp khác của doanh nghiệp và chủ sở hữu doanh nghiệp.
-3. Tài sản và vốn đầu tư hợp pháp của doanh nghiệp và chủ sở hữu doanh nghiệp không bị quốc hữu hóa, không bị tịch thu bằng biện pháp hành chính.
-Trường hợp thật cần thiết vì lý do quốc phòng, an ninh hoặc vì lợi ích quốc gia, tình trạng khẩn cấp, phòng, chống thiên tai, Nhà nước trưng mua hoặc trưng dụng có bồi thường tài sản của doanh nghiệp; trường hợp trưng mua thì doanh nghiệp được thanh toán, trường hợp trưng dụng thì doanh nghiệp được bồi thường theo giá thị trường tại thời điểm trưng mua hoặc trưng dụng. Việc thanh toán hoặc bồi thường phải bảo đảm lợi ích của doanh nghiệp và không phân biệt đối xử giữa các loại hình doanh nghiệp.
+Điều 132 Trả cổ tức
+
+1. Cổ tức trả cho cổ phần ưu đãi được thực hiện theo các điều kiện áp dụng riêng cho mỗi loại cổ phần ưu đãi.
+2. Cổ tức trả cho cổ phần phổ thông được xác định căn cứ vào số lợi nhuận ròng đã thực hiện và khoản chi trả cổ tức được trích từ nguồn lợi nhuận giữ lại của công ty. Công ty cổ phần chỉ được trả cổ tức của cổ phần phổ thông khi có đủ các điều kiện sau đây:
+a) Công ty đã hoàn thành nghĩa vụ thuế và các nghĩa vụ tài chính khác theo quy định của pháp luật;
+b) Đã trích lập các quỹ công ty và bù đắp đủ lỗ trước đó theo quy định của pháp luật và Điều lệ công ty;
+c) Ngay sau khi trả hết số cổ tức đã định, công ty vẫn bảo đảm thanh toán đủ các khoản nợ và nghĩa vụ tài sản khác đến hạn.
+3. Cổ tức có thể được chi trả bằng tiền mặt, bằng cổ phần của công ty hoặc bằng tài sản khác quy định tại Điều lệ công ty. Nếu chi trả bằng tiền mặt thì phải được thực hiện bằng Đồng Việt Nam và có thể được chi trả bằng séc, chuyển khoản hoặc lệnh trả tiền gửi bằng bưu điện đến địa chỉ thường trú hoặc địa chỉ liên lạc của cổ đông.
+4. Cổ tức phải được thanh toán đầy đủ trong thời hạn 06 tháng, kể từ ngày kết thúc họp Đại hội đồng cổ đông thường niên. Hội đồng quản trị lập danh sách cổ đông được nhận cổ tức, xác định mức cổ tức được trả đối với từng cổ phần, thời hạn và hình thức trả chậm nhất 30 ngày trước mỗi lần trả cổ tức. Thông báo về trả cổ tức được gửi bằng phương thức bảo đảm đến cổ đông theo địa chỉ đăng ký trong sổ đăng ký cổ đông chậm nhất 15 ngày trước khi thực hiện trả cổ tức. Thông báo phải có các nội dung sau đây:
+a) Tên công ty và địa chỉ trụ sở chính của công ty;
+b) Họ, tên, địa chỉ thường trú, quốc tịch, sổ Thẻ căn cước công dân, Giấy chứng minh nhân dân, Hộ chiếu hoặc chứng thực cá nhân hợp pháp khác của cổ đông là cá nhân;
+c) Tên, mã số doanh nghiệp hoặc số quyết định thành lập, địa chỉ trụ sở chính của cổ đông là tổ chức;
+d) Số lượng cổ phần từng loại của cổ đông; mức cổ tức đối với từng cổ phần và tổng số cổ tức mà cổ đông đó được nhận;
+đ) Thời điểm và phương thức trả cổ tức;
+e) Họ, tên, chữ ký của Chủ tịch Hội đồng quản trị và người đại diện theo pháp luật của công ty.
+5. Trường hợp cổ đông chuyển nhượng cổ phần của mình trong thời gian giữa thời điểm kết thúc lập danh sách cổ đông và thời điểm trả cổ tức thì người chuyển nhượng là người nhận cổ tức từ công ty.
+6. Trường hợp chi trả cổ tức bằng cổ phần, công ty không phải làm thủ tục chào bán cổ phần theo quy định tại các Điều 122, 123 và 124 của Luật này. Công ty phải đăng ký tăng vốn điều lệ tương ứng với tổng giá trị mệnh giá các cổ phần dùng để chi trả cổ tức trong thời hạn 10 ngày, kể từ ngày hoàn thành việc thanh toán cổ tức.
