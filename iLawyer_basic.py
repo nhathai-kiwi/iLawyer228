@@ -11,6 +11,8 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 dict
+# file dictionary for check question has at least 2 key words
+dict001 = 'dict001.txt'
 
 # delete file has a name inp_fileName
 def process_delete_file(inp_file_name):
@@ -49,6 +51,13 @@ def print_txt_from_prediction(inp_xlsx, answer_number, id_column, out_txt):
     return 0
 # DONE
 
+# gen article has id = answer_number
+def gen_article_from_prediction(inp_xlsx, answer_number, id_column):
+    book = openpyxl.load_workbook(inp_xlsx)
+    sheet = book.active
+    article = sheet.cell(row=answer_number + 1, column=id_column).value
+    return article
+# DONE
 
 # print array to txt file, each element in a line
 def print_txt_from_array(string_array, out_txt):
@@ -88,7 +97,6 @@ def gen_distinct_array(inp_arr):
     for element in inp_arr:
         value = dicts.get(element, 0)
         dicts[element] = value + 1
-    print "Len dicts01: ", len(dicts)
     for key, value in dicts.iteritems():
         out_arr.append(key)
     return out_arr
@@ -103,9 +111,9 @@ def gen_distinct_array_with_count(inp_arr):
         value = dicts.get(element, 0)
         dicts[element] = value + 1
 
-    print "Len dicts: ", len(dicts)
+    # print "Len dicts: ", len(dicts)
     dictsSort = OrderedDict(sorted(dicts.items(), key=lambda x: x[1], reverse=True))
-    print "Len dictSort: ", len(dictsSort)
+    # print "Len dictSort: ", len(dictsSort)
 
     for key, value in dictsSort.items():
         out_arr.append(key + " " + str(value))
@@ -166,11 +174,9 @@ def gen_feature_vector(string_array):
 
 
 # generate feature vector (numeric 1D array) from a question
-def gen_input_vector_from_txt(inp_txt, dictMain):
-    global dict
-    dict = dictMain
+def gen_input_vector_from_txt(inp_array):
 
-    print_txt_from_array(inp_txt, 'vncore_inp.txt')
+    print_txt_from_array(inp_array, 'vncore_inp.txt')
     process_vncore('vncore_inp.txt', 'vncore_out.txt')
     string_array = gen_words_from_vncore_out_txt('vncore_out.txt')
 
@@ -181,6 +187,36 @@ def gen_input_vector_from_txt(inp_txt, dictMain):
 
     return inp_vector
 # DONE
+
+
+# generate word from inp_txt, return list string
+def gen_string_array_from_txt(inp_txt):
+
+    process_vncore(inp_txt, 'vncore_out.txt')
+    string_array = gen_words_from_vncore_out_txt('vncore_out.txt')
+
+    return string_array
+
+# DONE
+
+
+# check question have at least 2 keywords (keyword from file dict001.txt contains 241 words)
+def check_question_at_least_2_keywords(string_array):
+    words = gen_array_from_txt(dict001)
+
+    # keyword read from file then the last character's keyword is '\n'
+    # remove '\n' character
+    keywords = []
+    for word in words:
+        keywords.append(word[:-1])
+
+    # counting number of string_array list in keywords
+    cnt = 0
+    for word in string_array:
+        if word in keywords:
+            print "word in keyword: ", word
+            cnt += 1
+    return cnt > 1
 
 
 # generate feature table (numeric 2D array) from a training set stored in xlsx
@@ -227,7 +263,7 @@ def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, dictMain
 
 
 # test some of pair (alpha, number of iteration) im MLP model to choose the best (alpha, iteration)
-def _alpha_and_iteration_in_MLP(X, y, X1, y1, alphas, max_iters, num_features):
+def test_alpha_and_iteration_in_MLP(X, y, X1, y1, alphas, max_iters, num_features):
     for alpha in alphas:
         for max_iter in max_iters:
             print "Alpha: ", alpha, "max_iter: ", max_iter

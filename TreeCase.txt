@@ -1,8 +1,88 @@
 Chương II: THÀNH LẬP DOANH NGHIỆP 18 - 46: 29
 Chương III: CÔNG TY TRÁCH NHIỆM HỮU HẠN 47 - 87: 41
     Mục 1: CÔNG TY TRÁCH NHIỆM HỮU HẠN HAI THÀNH VIÊN TRỞ LÊN 47 - 72 : 26
+
+
+
     Mục 2: CÔNG TY TRÁCH NHIỆM HỮU HẠN MỘT THÀNH VIÊN 73 - 87: 15
+
+
+        73	Công ty trách nhiệm hữu hạn một thành viên
+        74	Thực hiện góp vốn thành lập công ty
+        75	Quyền của chủ sở hữu công ty
+        76	Nghĩa vụ của chủ sở hữu công ty
+        77	Thực hiện quyền của chủ sở hữu công ty trong một số trường hợp đặc biệt
+        78	Cơ cấu tổ chức quản lý của công ty trách nhiệm hữu hạn một thành viên do tổ chức làm chủ sở hữu
+        79	Hội đồng thành viên
+        80	Chủ tịch công ty
+        81	Giám đốc, Tổng giám đốc
+        82	Kiểm soát viên
+        83	Trách nhiệm của thành viên Hội đồng thành viên, Chủ tịch công ty, Giám đốc, Tổng giám đốc và Kiểm soát viên
+        84	Thù lao, tiền lương và lợi ích khác của người quản lý công ty và Kiểm soát viên
+        85	Cơ cấu tổ chức quản lý công ty trách nhiệm hữu hạn một thành viên do cá nhân làm chủ sở hữu
+        86	Hợp đồng, giao dịch của công ty với những người có liên quan
+        87	Thay đổi vốn điều lệ
+
+        Von:
+        Thực hiện góp vốn thành lập công ty
+        Thay đổi vốn điều lệ
+
+
+        Chu so huu cong ty:
+        Quyền của chủ sở hữu công ty
+        Nghĩa vụ của chủ sở hữu công ty
+        Thực hiện quyền của chủ sở hữu công ty trong một số trường hợp đặc biệt
+
+
+        Other:
+
+
 Chương IV: DOANH NGHIỆP NHÀ NƯỚC 88 - 109: 22
+    Áp dụng quy định đối với doanh nghiệp nhà nước 	88
+    Cơ cấu tổ chức quản lý 	89
+    Hội đồng thành viên 	90
+    Quyền và nghĩa vụ của Hội đồng thành viên 	91
+    Tiêu chuẩn và điều kiện đối với thành viên Hội đồng thành viên 	92
+    Miễn nhiệm, cách chức thành viên Hội đồng thành viên 	93
+    Chủ tịch Hội đồng thành viên 	94
+    Quyền và nghĩa vụ của các thành viên khác của Hội đồng thành viên 	95
+    Trách nhiệm của Chủ tịch và các thành viên khác của Hội đồng thành viên 	96
+    Chế độ làm việc, điều kiện và thể thức tiến hành họp Hội đồng thành viên 	97
+    Chủ tịch công ty 	98
+    Giám đốc, Tổng giám đốc công ty 	99
+    Tiêu chuẩn, điều kiện của Giám đốc, Tổng giám đốc 	100
+    Miễn nhiệm, cách chức đối với Giám đốc, Tổng giám đốc và người quản lý công ty khác 	101
+    Ban kiểm soát 	102
+    Tiêu chuẩn và điều kiện đối với Kiểm soát viên 	103
+    Quyền của Ban kiểm soát và Kiểm soát viên 	104
+    Chế độ làm việc của Ban kiểm soát và Kiểm soát viên 	105
+    Trách nhiệm của Kiểm soát viên 	106
+    Miễn nhiệm, cách chức Kiểm soát viên 	107
+    Công bố thông tin định kỳ 	108
+    Công bố thông tin bất thường 	109
+
+
+    Hoi dong thanh vien:
+        Quyền và nghĩa vụ của Hội đồng thành viên
+        Tiêu chuẩn và điều kiện đối với thành viên Hội đồng thành viên
+        Miễn nhiệm, cách chức thành viên Hội đồng thành viên
+        Chủ tịch Hội đồng thành viên
+        Quyền và nghĩa vụ của các thành viên khác của Hội đồng thành viên
+        Trách nhiệm của Chủ tịch và các thành viên khác của Hội đồng thành viên
+        Chế độ làm việc, điều kiện và thể thức tiến hành họp Hội đồng thành viên
+
+
+    Kiem soat vien:
+        Tiêu chuẩn và điều kiện đối với Kiểm soát viên
+        Quyền của Ban kiểm soát và Kiểm soát viên
+        Chế độ làm việc của Ban kiểm soát và Kiểm soát viên
+        Trách nhiệm của Kiểm soát viên
+        Miễn nhiệm, cách chức Kiểm soát viên
+
+
+    Other:
+
+
 Chương V: CÔNG TY CỔ PHẦN 110 - 171: 62
 Chương VI: CÔNG TY HỢP DANH 172 - 182: 11
 Chương VII: DOANH NGHIỆP TƯ NHÂN 183 - 187: 5

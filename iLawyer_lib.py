@@ -47,6 +47,7 @@ def gen_dict_from_xlsx_with_count(inp_xlsx, num_rows, id_column):
     return dict, len(dict)
 # DONE
 
+
 # generate feature table and labels from a training set stored in xlsx
 # TODO add description for input xlsx
 def gen_feature_table_labels(inp_xlsx, num_rows, id_column_question, id_column_label, dict):
